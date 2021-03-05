@@ -110,7 +110,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   
-=begin
+#=begin
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'https://frozen-springs-75655.herokuapp.com'
@@ -123,8 +123,9 @@ Rails.application.configure do
     :domain         => host,
     :authentication => :plain,
   }
-=end
+#=end
 
+=begin
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true   
   host = 'https://frozen-springs-75655.herokuapp.com'   
@@ -138,4 +139,5 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+=end
 end
