@@ -110,6 +110,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   
+=begin
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'https://frozen-springs-75655.herokuapp.com'
@@ -121,5 +122,20 @@ Rails.application.configure do
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
     :domain         => host,
     :authentication => :plain,
+  }
+=end
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true   
+  host = 'https://frozen-springs-75655.herokuapp.com'   
+  config.action_mailer.default_url_options = { host: host }   
+  ActionMailer::Base.smtp_settings = {      
+    :port => 587,
+    :address => 'smtp.sendgrid.net',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => host,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
 end
